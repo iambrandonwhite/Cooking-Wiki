@@ -1,5 +1,5 @@
 // Global
-const connection = require("./connection.js");
+const connection = require("./connections.js");
 // Print Question Marks
 function printQuestionMarks(num){
     var arr = [];

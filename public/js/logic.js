@@ -3,11 +3,6 @@ var searchButton = $(".searchButton")
 
 
 
-
-
-
-
-
 var handleSearch = function() {
   let query = searchButton.val();
   // search with "query"
