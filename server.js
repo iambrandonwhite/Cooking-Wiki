@@ -1,34 +1,21 @@
-require("dotenv").config();
-var express = require("express");
-var exphbs = require("express-handlebars");
+const express = require("express");
+const bodyParser = require("body-parser");
+const exphbs = require("express-handlebars");
+const methodOverride = require('method-override');
+const routes = require("./controllers/recipes_controller");
+const app = express();
+const PORT = process.env.PORT || 8080;
 
-//var db = require("./models");
 
-var app = express();
-var PORT = process.env.PORT || 3000;
+app.use(methodOverride('_method'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine","handlebars");
+app.use("/", routes);
+app.use(express.static('public'));
 
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static("public"));
 
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
-app.set("view engine", "handlebars");
-
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
-
-app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s",
-      PORT
-    );
-  });
-module.exports = app;
+app.listen(PORT,function(){
+    console.log("App now listening at localhost:" + PORT);
+});
