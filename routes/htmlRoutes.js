@@ -1,23 +1,30 @@
-var db = require("../models");
+var recipes = require("../models");
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
+    res.render("index")
+  });
+
+  app.get("/library", function(req, res) {
+    let data = {
+      pageTitle: recipes.title,
+      pageServings: recipes.servings,
+      pageTime: recipes.time
+    };
+    res.render("library", data)
+  });
+
+  app.get("/add", function(req, res) {
+    res.render("add")
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
+  app.get("/recipe/:id", function(req, res) {
+    let data = {
+      
+    };
+    res.render("viewer", data)
   });
 
   // Render 404 page for any unmatched routes
