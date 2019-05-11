@@ -1,14 +1,15 @@
 // Get references to page elements
 var searchButton = $(".searchButton")
+var addButton = $("#addButton")
 
+searchButton.on("click", function() {
+    let query = $("#searchInput").val().trim();
+    // search with "query"
+});
 
-
-var handleSearch = function() {
-  let query = searchButton.val();
-  // search with "query"
-}
-
-searchButton.on("click", handleSearch);
+addButton.on("click", function(){
+    window.location = "/add";
+});
 
 /*
 // The API object contains methods for each kind of request we'll make
