@@ -1,9 +1,10 @@
 body {
   padding: 20px;
+  width: 80%;
+  margin: auto;
 }
 
-#topbar {
-  padding: 20px;
-  background-color: #3898a3;
+.navbar {
+  margin-bottom: 30px;
 }
 

@@ -7,10 +7,7 @@ searchButton.on("click", function() {
     // search with "query"
 });
 
-addButton.on("click", function(){
-    console.log("add clicked");
-    location = '/add';
-});
+
 
 /*
 // The API object contains methods for each kind of request we'll make
