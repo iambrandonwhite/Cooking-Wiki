@@ -1,5 +1,5 @@
 // Get references to page elements
-var searchButton = $(".searchButton")
+var searchButton = $("#searchButton")
 var addButton = $("#addButton")
 
 searchButton.on("click", function() {
@@ -8,7 +8,8 @@ searchButton.on("click", function() {
 });
 
 addButton.on("click", function(){
-    window.location = "/add";
+    console.log("add clicked");
+    location = '/add';
 });
 
 /*

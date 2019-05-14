@@ -17,9 +17,13 @@ router.get('/library',function(req,res){
     });
 });
 
+router.get('/add', function(req, res){
+    res.render('add')
+});
+
 router.post("/add",function(req,res){
     recipes.create(["recipe_name"],[req.body.recipe_name],function(result){
-        res.render("/add");
+        //res.render("add");
     });
 });
 

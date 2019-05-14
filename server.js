@@ -6,14 +6,14 @@ const routes = require("./controllers/recipes_controller");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-
+app.use(express.static('public'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine","handlebars");
 app.use("/", routes);
-app.use(express.static('public'));
+
 
 
 app.listen(PORT,function(){
