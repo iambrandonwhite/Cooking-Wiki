@@ -19,14 +19,15 @@
   <div class="container">
     <div class="row">
       
-      <div class="col-8 offset-2">
-        <h1>My Cookbook</h1>
-        <hr>
-        <h2>{{pageTitle}}</h2>
-        
-        <p>Servings: {{pageServings}}</p>
-        <p>Recipe time: {{pageTime}}</p>
-      </div>
+      <form>
+        <div id="newRecipeForm" class="form-group">
+          <label for="newRecipeName">Example textarea</label>
+          <input id="newRecipeName" class="form-control form-control-lg" type="text" placeholder="Recipe Name">
+
+          <label for="newRecipeDirections">Example textarea</label>
+          <textarea class="form-control" id="newRecipeDirections" rows="4"></textarea>
+        </div>
+      </form>
     
     </div>
   </div>

@@ -17,9 +17,13 @@ router.get('/library',function(req,res){
     });
 });
 
-router.get('/add', function(req, res){
-    res.render('add')
+router.get('/viewer/:recipe_name',function(req,res){
+    recipes.select(function(data){
+        var hbsObject = { recipes: data };
+        res.render('viewer',hbsObject);
+    });
 });
+
 
 router.post("/add",function(req,res){
     recipes.create(["recipe_name"],[req.body.recipe_name],function(result){
