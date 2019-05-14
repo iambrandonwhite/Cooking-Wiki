@@ -33,6 +33,18 @@ const orm = {
             cb(result);
         });
     },
+
+    selectRecipe_name: function(table,recipe_name,cb){
+        console.log("orm", recipe_name)
+        var queryString = `SELECT * FROM ${table} WHERE ${recipe_name};`;
+        console.log (queryString);
+        connection.query(queryString,function(err,result){
+            if(err){
+                throw err
+            };
+            cb(result);
+        });
+    },
     insertOne: function(table,cols,vals,cb){
         var queryString = `INSERT INTO ${table}(${cols.toString()}) VALUES(${printQuestionMarks(vals.length)});`;
 
