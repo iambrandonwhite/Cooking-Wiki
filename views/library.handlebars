@@ -22,10 +22,9 @@
         <h1>Recipe Library</h1>
         <hr>
         {{#each recipes}}
-        {{this.recipe_name}}</h2>
-        
-        <p>Servings: {{this.number_of_servings}}</p>
-        <p>Recipe time: {{this.total_time}}</p>
+        <form action= "/viewer/{{this.recipe_name}}" method="GET">
+        <button type= "submit">{{this.recipe_name}}</button>
+        </form>
 {{/each}}
       </div>
     </div>
