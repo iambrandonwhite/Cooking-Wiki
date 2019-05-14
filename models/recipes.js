@@ -1,7 +1,7 @@
 // Global
 const orm = require("../config/orm.js");
 // Burger
-const recipe = {
+const recipes = {
     select: function(cb){
         orm.selectAll("recipes",function(res){
             cb(res);
@@ -18,5 +18,7 @@ const recipe = {
         });
     }
 };
+
+
 // Export Burger
 module.exports = recipes;
