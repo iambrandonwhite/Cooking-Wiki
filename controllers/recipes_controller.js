@@ -13,6 +13,14 @@ router.get('/library',function(req,res){
         res.render('library',hbsObject);
     });
 });
+
+router.get('/viewer/:recipe_name',function(req,res){
+    recipes.select(function(data){
+        var hbsObject = { recipes: data };
+        res.render('viewer',hbsObject);
+    });
+});
+
 // Create Burger
 router.post("/add",function(req,res){
     recipes.create(["recipe_name"],[req.body.recipe_name],function(result){

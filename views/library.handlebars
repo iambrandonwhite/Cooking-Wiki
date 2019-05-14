@@ -21,10 +21,12 @@
       <div class="col-8 text-align-center">
         <h1>Recipe Library</h1>
         <hr>
-        <h2>{{pageTitle}}</h2>
+        {{#each recipes}}
+        <h2>{{this.recipe_name}}</h2>
         
-        <p>Servings: {{pageServings}}</p>
-        <p>Recipe time: {{pageTime}}</p>
+        <p>Servings: {{this.number_of_servings}}</p>
+        <p>Recipe time: {{this.total_time}}</p>
+{{/each}}
       </div>
     </div>
   </div>
