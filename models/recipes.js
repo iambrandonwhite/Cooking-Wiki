@@ -7,6 +7,13 @@ const recipes = {
             cb(res);
         });
     },
+
+    recipe: function(recipe_name,cb){
+        console.log("model", recipe_name)
+        orm.selectRecipe_name("recipes", recipe_name,function(res){
+            cb(res);
+        });
+    },
     create: function(cols,vals,cb){
         orm.insertOne("recipes",cols,vals,function(res){
             cb(res);
