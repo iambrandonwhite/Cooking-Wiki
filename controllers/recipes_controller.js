@@ -21,13 +21,6 @@ router.get('/viewer/:name',function(req,res){
     var name = `recipe_name = "${req.params.name}"`;
     //console.log("controller",name);
     recipes.recipe(name, function(data){
-        // split ingredients:
-        console.log("CH: parsing ingredients test", data);
-        var str = data.ingredients
-        var ingredientsSplit = str.split(", ");
-        console.log(ingredientsSplit);
-
-
         var hbsObject = { recipes: data };
         res.render('viewer',hbsObject);
     });
@@ -36,7 +29,6 @@ router.get('/viewer/:name',function(req,res){
 router.get('/add', function(req, res){
     res.render('add');
 });
-
 
 router.post("/add",function(req,res){
     recipes.create(["recipe_name"],[req.body.recipe_name],function(result){
