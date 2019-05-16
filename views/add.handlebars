@@ -31,27 +31,31 @@
 					<label for="newRecipeName">Recipe Name</label>
 					<input id="newRecipeName" class="form-control form-control-lg" type="text">
 
-				    <div class="form-group">
-							<label for="newRecipeServings">Servings</label>
-							<select class="form-control" id="newRecipeServings">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-								<option>6</option>
-								<option>7</option>
-								<option>8</option>
-							</select>
-  					</div>
-					<label for="newRecipeingredients">Ingredients</label>
+					<div class="form-group">
+						<label for="newRecipeServings">Servings</label>
+						<select class="form-control" id="newRecipeServings">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+						</select>
+					</div>
+
+					<label for="newRecipeTime">Total Time</label>
+					<input id="newRecipeTime" class="form-control form-control-lg" type="text" placeholder="00:00:00">
+
+					<label for="newRecipeingredients">Ingredients (separate with commas)</label>
 					<input id="newRecipeIngredients" class="form-control form-control-lg" type="text">
 
 					<label for="newRecipeDirections">Directions</label>
 					<textarea class="form-control" id="newRecipeDirections" rows="4"></textarea>
 				</div>
 			</form>
-		
 		</div>
+		<button id="newRecipeSubmit" type="button" class="btn btn-primary btn-lg">Submit</button>
 	</div>
 </div>
