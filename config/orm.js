@@ -45,10 +45,31 @@ const orm = {
             cb(result);
         });
     },
-    insertOne: function(table,cols,vals,cb){
-        var queryString = `INSERT INTO ${table}(${cols.toString()}) VALUES(${printQuestionMarks(vals.length)});`;
+    insertOne: function(table, recipe_name, ingredients, directions, total_time, number_of_servings, cb){
 
-        connection.query(queryString,vals,function(err,result){
+        connection.query('INSERT INTO ' + table + ' SET ?;',
+        {
+            recipe_name:recipe_name,
+            ingredients: ingredients,
+            directions: directions,
+            total_time: total_time,
+            number_of_servings: number_of_servings
+        }
+        ,function(err,result){
+        if(err){
+            throw err;
+        }
+          cb(result);
+        });
+    },
+
+    deleteOne: function(table, recipe_id,cb){
+
+        connection.query('DELETE FROM ' + table + ' WHERE ?;',
+        {
+            recipe_id:recipe_id
+        }
+        ,function(err,result){
         if(err){
             throw err;
         }
