@@ -28,11 +28,12 @@
         <h1>Recipe Library</h1>
         <hr>
         {{#each recipes}}
+
         <form action= "/viewer/{{this.recipe_name}}" method="GET">
         <button type= "submit">{{this.recipe_name}}</button>
         </form>
-{{/each}}
-<a class="btn btn-primary btn-lg" href="add" role="button"><i class="fas fa-plus"></i> New Recipe</a>
+        {{/each}}        
+        <a class="btn btn-primary btn-lg" href="add" role="button"><i class="fas fa-plus"></i> New Recipe</a>
       </div>
     </div>
   </div>
