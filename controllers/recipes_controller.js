@@ -19,8 +19,13 @@ router.get('/library',function(req,res){
 
 router.get('/viewer/:name',function(req,res){
     var name = `recipe_name = "${req.params.name}"`;
-    //console.log("controller",name);
+
     recipes.recipe(name, function(data){
+        // ingredients list parse testing:
+        let str = data[0].ingredients;
+        let array = str.split(",");
+        data[0].ingredientsArray = array;
+
         var hbsObject = { recipes: data };
         res.render('viewer',hbsObject);
     });
@@ -32,7 +37,7 @@ router.get('/add', function(req, res){
 
 router.post("/add",function(req,res){
     recipes.create(["recipe_name"],[req.body.recipe_name],function(result){
-        //res.render("add");
+        res.render("library");
     });
 });
 

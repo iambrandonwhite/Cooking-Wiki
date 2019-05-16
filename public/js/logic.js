@@ -4,7 +4,13 @@ var addButton = $("#addButton");
 var newRecipeSubmit = $("#newRecipeSubmit");
 
 searchButton.on("click", function() {
-    let query = $("#searchInput").val().trim();
-    // search with "query"
+  let query = $("#searchInput").val().trim();
+  // search with "query"
 });
 
+// split ingredients list
+function splitIngredients(){
+
+}
+
+// add form:
