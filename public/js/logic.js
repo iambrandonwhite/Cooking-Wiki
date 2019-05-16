@@ -8,9 +8,4 @@ searchButton.on("click", function() {
   // search with "query"
 });
 
-// split ingredients list
-function splitIngredients(){
 
-}
-
-// add form:

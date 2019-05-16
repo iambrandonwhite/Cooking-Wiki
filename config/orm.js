@@ -35,9 +35,7 @@ const orm = {
     },
 
     selectRecipe_name: function(table,recipe_name,cb){
-        console.log("orm", recipe_name)
         var queryString = `SELECT * FROM ${table} WHERE ${recipe_name};`;
-        console.log (queryString);
         connection.query(queryString,function(err,result){
             if(err){
                 throw err

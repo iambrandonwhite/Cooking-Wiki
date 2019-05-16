@@ -28,11 +28,9 @@
         <h1>Recipe Library</h1>
         <hr>
         {{#each recipes}}
-
-        <form action= "/viewer/{{this.recipe_name}}" method="GET">
-        <button type= "submit">{{this.recipe_name}}</button>
-        </form>
+        <a id="recipeLink" href="/viewer/{{this.recipe_name}}" method="GET">{{this.recipe_name}}</a><br>
         {{/each}}        
+        <hr>
         <a class="btn btn-primary btn-lg" href="add" role="button"><i class="fas fa-plus"></i> New Recipe</a>
       </div>
     </div>

@@ -27,7 +27,7 @@
       <div class="card mt-4">
         <div class="card-body">
           {{#each recipes}}
-          <h5 class="card-title">{{this.recipe_name}}</h5>
+          <h5 class="card-title"><u>{{this.recipe_name}}</u></h5>
           <p>
             <strong>Servings:</strong> {{this.number_of_servings}}</p>
           <p>
@@ -45,7 +45,7 @@
           <p>
             <strong>Directions:</strong> {{this.directions}}</p>
           {{/each}}
-            <a href="/library">← Back To Library</a>
+            <a href="/library">← Back To Recipes</a>
         </div>
       </div>
     </div>
