@@ -14,11 +14,19 @@ const recipes = {
             cb(res);
         });
     },
-    create: function(cols,vals,cb){
-        orm.insertOne("recipes",cols,vals,function(res){
+    create: function(recipe_name, ingredients, directions, total_time, number_of_servings,cb){
+        console.log (recipe_name, ingredients, directions, total_time, number_of_servings);
+        orm.insertOne("recipes",recipe_name, ingredients, directions, total_time, number_of_servings,function(res){
             cb(res);
         });
     },
+
+    delete: function(recipe_id, cb){
+        orm.deleteOne("recipes", recipe_id, function(res){
+            cb(res);
+        });
+    },
+
     update: function(objColVals,condition,cb){
         orm.updateOne("recipes",objColVals,condition,function(res){
             cb(res);

@@ -26,14 +26,14 @@
 	<div class="container">
 		<div class="row">
 			
-			<form>
+			<form action="/add" method="POST">
 				<div id="newRecipeForm" class="form-group">
 					<label for="newRecipeName">Recipe Name</label>
-					<input id="newRecipeName" class="form-control form-control-lg" type="text">
+					<input name="recipe_name" class="form-control form-control-lg" type="text">
 
 					<div class="form-group">
 						<label for="newRecipeServings">Servings</label>
-						<select class="form-control" id="newRecipeServings">
+						<select class="form-control" name="number_of_servings">
 							<option>1</option>
 							<option>2</option>
 							<option>3</option>
@@ -46,16 +46,14 @@
 					</div>
 
 					<label for="newRecipeTime">Total Time</label>
-					<input id="newRecipeTime" class="form-control form-control-lg" type="text" placeholder="00:00:00">
+					<input name="total_time" class="form-control form-control-lg" type="text" placeholder="00:00:00">
 
 					<label for="newRecipeingredients">Ingredients (separate with commas)</label>
-					<input id="newRecipeIngredients" class="form-control form-control-lg" type="text">
+					<input name="ingredients" class="form-control form-control-lg" type="text">
 
 					<label for="newRecipeDirections">Directions</label>
-					<textarea class="form-control" id="newRecipeDirections" rows="4"></textarea>
+					<textarea class="form-control" name="directions" rows="4"></textarea>
+					<button id="newRecipeSubmit" type="submit" class="btn btn-primary btn-lg">Submit</button>
 				</div>
 			</form>
-		</div>
-		<button id="newRecipeSubmit" type="button" class="btn btn-primary btn-lg">Submit</button>
-	</div>
 </div>

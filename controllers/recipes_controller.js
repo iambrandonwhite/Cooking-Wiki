@@ -18,8 +18,8 @@ router.get('/library',function(req,res){
 });
 
 router.get('/viewer/:name',function(req,res){
-    var name = `recipe_name = "${req.params.name}"`;
-    //console.log("controller",name);
+     var name = `recipe_name = "${req.params.name}"`;
+    //  console.log("controller",name);
     recipes.recipe(name, function(data){
         var hbsObject = { recipes: data };
         res.render('viewer',hbsObject);
@@ -30,9 +30,18 @@ router.get('/add', function(req, res){
     res.render('add');
 });
 
+
 router.post("/add",function(req,res){
-    recipes.create(["recipe_name"],[req.body.recipe_name],function(result){
-        //res.render("add");
+    recipes.create(req.body.recipe_name,req.body.ingredients,req.body.directions,
+    req.body.total_time,req.body.number_of_servings, function(result){
+        res.redirect('/library');
+    });
+    
+});
+
+router.post("/delete", function(req,res){
+    recipes.delete(recipe_id, function (){
+        res.redirect("/library");
     });
 });
 
