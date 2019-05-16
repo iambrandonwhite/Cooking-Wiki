@@ -26,7 +26,7 @@ router.get('/viewer/:name',function(req,res){
 // Create Burger
 router.post("/add",function(req,res){
     recipes.create(["recipe_name"],[req.body.recipe_name],function(result){
-        res.redirect("/recipes");
+        res.render('add', hbsObject);
     });
 });
 // Update Burger
