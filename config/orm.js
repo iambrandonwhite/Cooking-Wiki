@@ -24,6 +24,7 @@ function objToSql(ob){
 };
 // Orm
 const orm = {
+    //Displaying to the whole table
     selectAll: function(table,cb){
         var queryString = `SELECT * FROM ${table};`;
         connection.query(queryString,function(err,result){
@@ -34,10 +35,9 @@ const orm = {
         });
     },
 
+    //Displaying 1 specific recipe from the table
     selectRecipe_name: function(table,recipe_name,cb){
-        console.log("orm", recipe_name)
         var queryString = `SELECT * FROM ${table} WHERE ${recipe_name};`;
-        console.log (queryString);
         connection.query(queryString,function(err,result){
             if(err){
                 throw err
@@ -45,6 +45,8 @@ const orm = {
             cb(result);
         });
     },
+
+    //Creating a new recipe in the table
     insertOne: function(table, recipe_name, ingredients, directions, total_time, number_of_servings, cb){
 
         connection.query('INSERT INTO ' + table + ' SET ?;',
@@ -63,6 +65,7 @@ const orm = {
         });
     },
 
+    //Deleting a recipe from the recipe table
     deleteOne: function(table, recipe_id,cb){
 
         connection.query('DELETE FROM ' + table + ' WHERE ?;',
@@ -75,16 +78,8 @@ const orm = {
         }
           cb(result);
         });
-    },
-    updateOne: function(table,objColVals,condition,cb){
-        var queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition};`;
-        connection.query(queryString,function(err,result){
-            if(err){
-                throw err
-            };
-            cb(result);
-        });
     }
 };
+
 // Export Orm
 module.exports = orm;
