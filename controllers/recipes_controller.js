@@ -20,8 +20,15 @@ router.get('/library',function(req,res){
 
 //Route to view a specific recipe after selecting it
 router.get('/viewer/:name',function(req,res){
+
      var name = `recipe_name = "${req.params.name}"`;
+
     recipes.recipe(name, function(data){
+        // ingredients list parse testing:
+        let str = data[0].ingredients;
+        let array = str.split(",");
+        data[0].ingredientsArray = array;
+
         var hbsObject = { recipes: data };
         res.render('viewer',hbsObject);
     });
@@ -40,6 +47,7 @@ router.post("/add",function(req,res){
 router.post("/delete", function(req,res){
     recipes.delete(recipe_id, function (){
         res.redirect("/library");
+
     });
 });
 

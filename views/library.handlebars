@@ -28,19 +28,19 @@
         <h1>Recipe Library</h1>
         <hr>
         {{#each recipes}}
-
-        <form action= "/viewer/{{this.recipe_name}}" method="GET">
-        <button type= "submit">{{this.recipe_name}}</button>
-        </form>
+        <a id="recipeLink" href="/viewer/{{this.recipe_name}}" method="GET">{{this.recipe_name}}</a>
+        <a class="deleteRecipe" href="<!--add delete method here-->">
+          <i class="fas fa-minus-circle"></i>
+        </a>
+        <br>
         {{/each}}        
+        <hr>
         <a class="btn btn-primary btn-lg" href="add" role="button"><i class="fas fa-plus"></i> New Recipe</a>
         <a class="btn btn-primary btn-lg" href="delete" role="button"><i class="fas fa-minus"></i> Delete Recipe</a>
       </div>
     </div>
   </div>
 </div>
-
-
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/logic.js"></script>

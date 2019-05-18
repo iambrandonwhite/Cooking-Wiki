@@ -1,7 +1,9 @@
-// Global
 const orm = require("../config/orm.js");
 
+
+
 // Recipes
+
 const recipes = {
 
     //Displaying table of recipe
@@ -32,7 +34,9 @@ const recipes = {
         });
     },
 
+
 };
 
 // Export Recipes
+
 module.exports = recipes;

@@ -27,18 +27,27 @@
       <div class="card mt-4">
         <div class="card-body">
           {{#each recipes}}
-          <h5 class="card-title">{{this.recipe_name}}</h5>
+          <h5 class="card-title"><u>{{this.recipe_name}}</u></h5>
           <p>
-            <strong>Servings:</strong>: {{this.number_of_servings}}</p>
+            <strong>Servings:</strong> {{this.number_of_servings}}</p>
           <p>
           <p>
-            <strong>Total Time:</strong>: {{this.total_time}}</p>
-          <p>
-            <strong>Ingredients:</strong> {{this.ingredients}}</p>
+            <strong>Total Time:</strong> {{this.total_time}}</p>
+          
+          <strong>Ingredients:</strong>
+          <ul>
+          {{#each this.ingredientsArray as |ingredient|}}
+            <li>
+              {{ingredient}}
+            </li>
+          {{/each}}
+          </ul>
           <p>
             <strong>Directions:</strong> {{this.directions}}</p>
           {{/each}}
-            <a href="/"><i class="fas fa-home"></i>Back To Home</a>
+
+            <a href="/library">← Back To Recipes</a>
+
         </div>
       </div>
     </div>
