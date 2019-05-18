@@ -33,6 +33,10 @@ router.get('/viewer/:name',function(req,res){
     });
 });
 
+router.get("/add", function(req,res){
+    res.render('add');
+})
+
 //Route to adding a new recipe to database
 router.post("/add",function(req,res){
     recipes.create(req.body.recipe_name, req.body.ingredients, req.body.directions,
