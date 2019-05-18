@@ -21,7 +21,6 @@ router.get('/library',function(req,res){
 //Route to view a specific recipe after selecting it
 router.get('/viewer/:name',function(req,res){
      var name = `recipe_name = "${req.params.name}"`;
-    //  console.log("controller",name);
     recipes.recipe(name, function(data){
         var hbsObject = { recipes: data };
         res.render('viewer',hbsObject);

@@ -13,7 +13,6 @@ const recipes = {
 
     //Displaying single recipe
     recipe: function(recipe_name,cb){
-        console.log("model", recipe_name)
         orm.selectRecipe_name("recipes", recipe_name,function(res){
             cb(res);
         });
@@ -21,7 +20,6 @@ const recipes = {
 
     //Creating a single recipe to datatable
     create: function(recipe_name, ingredients, directions, total_time, number_of_servings,cb){
-        console.log (recipe_name, ingredients, directions, total_time, number_of_servings);
         orm.insertOne("recipes",recipe_name, ingredients, directions, total_time, number_of_servings,function(res){
             cb(res);
         });
