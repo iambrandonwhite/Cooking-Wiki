@@ -20,8 +20,7 @@ router.get('/library',function(req,res){
 
 //Route to view a specific recipe after selecting it
 router.get('/viewer/:name',function(req,res){
-
-     var name = `recipe_name = "${req.params.name}"`;
+    var name = `recipe_name = "${req.params.name}"`;
 
     recipes.recipe(name, function(data){
         // ingredients list parse testing:
@@ -40,10 +39,11 @@ router.get("/add", function(req,res){
 
 //Route to adding a new recipe to database
 router.post("/add",function(req,res){
-    recipes.create(req.body.recipe_name,req.body.ingredients,req.body.directions,
-    req.body.total_time,req.body.number_of_servings, function(result){
-        res.redirect('/library');
-    });
+    recipes.create(req.body.recipe_name, req.body.ingredients, req.body.directions,
+        req.body.total_time,req.body.number_of_servings, function(result){
+            res.redirect('/library');
+        }
+    );
     
 });
 
@@ -51,7 +51,6 @@ router.post("/add",function(req,res){
 router.post("/delete", function(req,res){
     recipes.delete(recipe_id, function (){
         res.redirect("/library");
-
     });
 });
 

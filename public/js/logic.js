@@ -12,5 +12,3 @@ searchButton.on("click", function() {
 deleteRecipeButton.on("click", function(){
   alert("Are you sure you want to delete this recipe?");
 });
-
-
