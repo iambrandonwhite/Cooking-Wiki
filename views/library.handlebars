@@ -29,14 +29,13 @@
         <hr>
         {{#each recipes}}
         <a id="recipeLink" href="/viewer/{{this.recipe_name}}" method="GET">{{this.recipe_name}}</a>
-        <a class="deleteRecipe" href="<!--add delete method here-->">
+        <a class="deleteRecipe" href="/delete">
           <i class="fas fa-minus-circle"></i>
         </a>
         <br>
         {{/each}}        
         <hr>
         <a class="btn btn-primary btn-lg" href="add" role="button"><i class="fas fa-plus"></i> New Recipe</a>
-        <a class="btn btn-primary btn-lg" href="delete" role="button"><i class="fas fa-minus"></i> Delete Recipe</a>
       </div>
     </div>
   </div>
