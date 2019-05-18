@@ -20,8 +20,14 @@ router.get('/library',function(req,res){
 
 //Route to view a specific recipe after selecting it
 router.get('/viewer/:name',function(req,res){
+<<<<<<< HEAD
     var name = `recipe_name = "${req.params.name}"`;
 
+=======
+
+     var name = `recipe_name = "${req.params.name}"`;
+
+>>>>>>> 8242bbf7d8c84b8ceeaa6af1ee4d3916af5eb199
     recipes.recipe(name, function(data){
         // ingredients list parse testing:
         let str = data[0].ingredients;

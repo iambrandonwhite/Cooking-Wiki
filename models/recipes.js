@@ -1,6 +1,13 @@
 const orm = require("../config/orm.js");
 
+<<<<<<< HEAD
 // Recipes
+=======
+
+
+// Recipes
+
+>>>>>>> 8242bbf7d8c84b8ceeaa6af1ee4d3916af5eb199
 const recipes = {
 
     //Displaying table of recipe
@@ -31,7 +38,9 @@ const recipes = {
         });
     },
 
+
 };
 
 // Export Recipes
+
 module.exports = recipes;
