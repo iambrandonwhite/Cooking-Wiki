@@ -24,6 +24,7 @@ function objToSql(ob){
 };
 // Orm
 const orm = {
+    //Displaying to the whole table
     selectAll: function(table,cb){
         var queryString = `SELECT * FROM ${table};`;
         connection.query(queryString,function(err,result){
@@ -34,6 +35,7 @@ const orm = {
         });
     },
 
+    //Displaying 1 specific recipe from the table
     selectRecipe_name: function(table,recipe_name,cb){
         var queryString = `SELECT * FROM ${table} WHERE ${recipe_name};`;
         connection.query(queryString,function(err,result){
@@ -43,25 +45,41 @@ const orm = {
             cb(result);
         });
     },
-    insertOne: function(table,cols,vals,cb){
-        var queryString = `INSERT INTO ${table}(${cols.toString()}) VALUES(${printQuestionMarks(vals.length)});`;
 
-        connection.query(queryString,vals,function(err,result){
+    //Creating a new recipe in the table
+    insertOne: function(table, recipe_name, ingredients, directions, total_time, number_of_servings, cb){
+
+        connection.query('INSERT INTO ' + table + ' SET ?;',
+        {
+            recipe_name:recipe_name,
+            ingredients: ingredients,
+            directions: directions,
+            total_time: total_time,
+            number_of_servings: number_of_servings
+        }
+        ,function(err,result){
         if(err){
             throw err;
         }
           cb(result);
         });
     },
-    updateOne: function(table,objColVals,condition,cb){
-        var queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition};`;
-        connection.query(queryString,function(err,result){
-            if(err){
-                throw err
-            };
-            cb(result);
+
+    //Deleting a recipe from the recipe table
+    deleteOne: function(table, recipe_id,cb){
+
+        connection.query('DELETE FROM ' + table + ' WHERE ?;',
+        {
+            recipe_id:recipe_id
+        }
+        ,function(err,result){
+        if(err){
+            throw err;
+        }
+          cb(result);
         });
     }
 };
+
 // Export Orm
 module.exports = orm;
