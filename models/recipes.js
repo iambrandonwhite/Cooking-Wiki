@@ -18,8 +18,8 @@ const recipes = {
     },
 
     //Creating a single recipe to datatable
-    create: function(recipe_name, ingredients, directions, total_time, number_of_servings,cb){
-        orm.insertOne("recipes",recipe_name, ingredients, directions, total_time, number_of_servings,function(res){
+    create: function(recipe_name, ingredients, directions, total_time, number_of_servings, cb){
+        orm.insertOne("recipes", recipe_name, ingredients, directions, total_time, number_of_servings,function(res){
             cb(res);
         });
     },

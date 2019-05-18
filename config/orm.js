@@ -51,7 +51,7 @@ const orm = {
 
         connection.query('INSERT INTO ' + table + ' SET ?;',
         {
-            recipe_name:recipe_name,
+            recipe_name: recipe_name,
             ingredients: ingredients,
             directions: directions,
             total_time: total_time,
