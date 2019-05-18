@@ -2,6 +2,7 @@ const express = require("express");
 const recipes = require("../models/recipes.js");
 const router = express.Router();
 
+//Route to home page
 router.get('/',function(req,res){   
     recipes.select(function(){
         
@@ -9,6 +10,7 @@ router.get('/',function(req,res){
     res.render('index');
 });
 
+//Route to list of recipes
 router.get('/library',function(req,res){
     recipes.select(function(data){
         var hbsObject = { recipes: data };
@@ -16,8 +18,10 @@ router.get('/library',function(req,res){
     });
 });
 
+//Route to view a specific recipe after selecting it
 router.get('/viewer/:name',function(req,res){
-    var name = `recipe_name = "${req.params.name}"`;
+
+     var name = `recipe_name = "${req.params.name}"`;
 
     recipes.recipe(name, function(data){
         // ingredients list parse testing:
@@ -30,20 +34,26 @@ router.get('/viewer/:name',function(req,res){
     });
 });
 
-router.get('/add', function(req, res){
-    res.render('add');
+//Route to adding a new recipe to database
+router.post("/add",function(req,res){
+    recipes.create(req.body.recipe_name,req.body.ingredients,req.body.directions,
+    req.body.total_time,req.body.number_of_servings, function(result){
+        res.redirect('/library');
+    });
+    
 });
 
-router.post("/add",function(req,res){
-    recipes.create(["recipe_name"],[req.body.recipe_name],function(result){
-        res.render("library");
+//Route to deleting a recipe based on ID
+router.post("/delete", function(req,res){
+    recipes.delete(recipe_id, function (){
+        res.redirect("/library");
+
     });
 });
 
+//Default error route
 router.get("*", function(req,res){
     res.render("404")
 });
-
-
 
 module.exports = router;
