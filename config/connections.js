@@ -1,5 +1,7 @@
+//Creating connection to heroku database
+
 var mysql = require('mysql');
- var connection = mysql.createConnection({
+var connection = mysql.createConnection({
     host: 'pwcspfbyl73eccbn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
     database: 'zbvnutgh6ya4wwus',
     user: 'un3w9shcb8vsetqf',
